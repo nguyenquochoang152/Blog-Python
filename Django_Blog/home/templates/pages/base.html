@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,4 +52,32 @@
         </div>
     </footer>    
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load staticfiles %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <title>{% block  title %}{% endblock  %}</title>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1">
+                <center><img src="{% static 'images/1.jps'%}" class="responsive-img" style="max-height:150px"/></center>
+            </div>
+            <div class="col-sm-10">
+                <center><h1>Blog làm từ Python Django</h1></center>
+            </div>
+        </div>
+    </div>        
+    {% block content %}
+    
+    {% endblock  %}
+</body>
+>>>>>>> 0ed6f8224d0aa7864fabcb54962d365569048bc3
 </html>
