@@ -21,8 +21,17 @@
             <div class="col-sm-2">
                 <center><img src="{% static 'images/2.jpg'%}" class="responsive-img" style="max-height:150px"/></center>
             </div>
-            <div class="col-sm-10">
-                <center><h1>Blog làm từ Python Django</h1></center>
+            <div class="col-sm-8">
+                <center><h1>Danh Sách Các Bài Viết</h1></center>
+            </div>
+            <div class="col-sm-2">
+                {% if user.username %}
+                    <p>Xin Chào {{user.username}}</p>
+                    <p><a href="{% url 'logout' %}">Đăng xuất</a></p>
+                {% else %}
+                    <p><a href="{% url 'register' %}">Đăng Ký</a>|<a href="{% url 'login' %}">Đăng Nhập</a></p>
+
+                {% endif %}
             </div>
         </div>
         <br>
