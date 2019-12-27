@@ -9,15 +9,16 @@
     {% if not Posts %}
       Chưa có bài viết nào
     {% else %}
+     <center><h3>Danh Sách Bài Viết</h3></center>
     {% for post in Posts  %}
       <div class="card md-4">
         <div class="card-body">
-          <h2 class="card-title">{{post.title}}</h2>
-          <img src = "{{post.image.url}}" with="500px" height="300px"/>
+          <h4><a href="{% url 'post' post.id %}">{{post.title}}</a></h4>
+          <img src = "{{post.image.url}}" with="400px" height="200px"/>
           <br>
           <small>{{post.date|date:'d/m/Y'}}</small>
           <p class="card-text">{{post.body}}</p>
-          <a href= "{% url 'post' post.id %}" class="btn btn-primary">Xem thêm</a>
+         
        </div>
      </div>
     {% endfor %}
