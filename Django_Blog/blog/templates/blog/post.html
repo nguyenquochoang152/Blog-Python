@@ -5,7 +5,7 @@
 
 {% block content %}
 <h3><a href='{% url 'post' post.id %}'>{{post.title}}</a></h3>
-<img src="{{post.image.url}}" width="550px" height="350px" />
+<img src="{{post.image.url}}" width="500px" height="250px" />
 <h6>on {{post.date}}</h6>
 {{post.body|safe|linebreaks}}
 {% for comment in post.comments.all%}

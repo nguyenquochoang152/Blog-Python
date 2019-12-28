@@ -12,9 +12,13 @@
         {% for key,value in form.errors.items %}
             {{value}}
         {% endfor %}
+        <center>
+        <h2 style="text-align:center">ĐĂNG NHẬP</h2>
+        </br>
         <p><label>Tài Khoản :</label>{{form.username}}</p>
         <p><label>Mật Khẩu :</label>{{form.password}}</p>
-        <input type="hidden" name="next" value="/"/>
-        <input type="submit" value="Đăng nhập"/>
+        <input type="hidden" name="next" value="{% url 'blog' %}"/>
+        <button name="submit" class="btn btn-success">Đăng Nhập</button>
+        </center>
 </body>
 </html>

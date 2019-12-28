@@ -12,48 +12,67 @@
             height: 100%;
            background-color: #f6f6f6
         }
+        .bg-dark{
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
     <div class="container-fluid" style="min-height:95%;">
         <div class="row">
-            <div class="col-sm-2">
-                <center><img src="{% static 'images/2.jpg'%}" class="responsive-img" style="max-height:150px"/></center>
-            </div>
-            <div class="col-sm-8">
-                <center><h1>Blog</h1></center>
-            </div>
-            <div class="col-sm-2">
-                {% if user.username %}
-                    <p>Xin Chào {{user.username}}</p>
-                    <p><a href="{% url 'logout' %}">Đăng xuất</a></p>
-                {% else %}
-                    <p><a href="{% url 'register' %}">Đăng Ký</a>|<a href="{% url 'login' %}">Đăng Nhập</a></p>
-
-                {% endif %}
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-2">
-                <div class="bs-sliderbar" style="background-color: #fff;">
-                <center>  
-                    <nav class="nav flex-column">
-                        <a class ="nav-link" href="/">Thông tin cá nhân</a>   
-                        <a class ="nav-link" href="{% url 'blog' %}">Blog</a>
-                        <a class ="nav-link" href="{% url 'contact' %}">Liên hệ</a>
-                    </nav>
-                </center>
-                </div>     
-            </div>
-            <div class="col-sm-10">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <a class="navbar-brand" href="{% url 'blog' %}">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class ="nav-link" href="/">Thông tin cá nhân</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class ="nav-link" href="{% url 'blog' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class ="nav-link" href="{% url 'contact' %}">Liên hệ</a>
+                    </li>
+                  </div>
+                  <div class = "text-right">
+                    <li class="nav-item">
+                      {% if user.username %}
+                      <p style="color:green"> Xin Chào {{user.username}}</p>
+                    </li>
+                    </div>
+                     <div class = "text-right">
+                    <li class="nav-item">
+                      <a class ="nav-link" href="{% url 'logout' %}">Đăng Xuất</a>
+                    </li>
+                    <li class="nav-item">
+                       
+                        <div class = "text-right">
+                        {% else %}
+                        <li class="nav-item">
+                            <a class ="nav-link" href="{% url 'register' %}">Đăng Ký</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class ="nav-link" href="{% url 'login' %}">Đăng Nhập</a>
+                        </li>
+                        {% endif %}
+                        <div>
+                        
+                    </li>
+                   
+                  </ul>
+                </div>  
+              </nav>
+            
                 <div class="container-fluid">
                     {% block content %}
 
                     {% endblock %}
                 </div>
-            </div>
+            
         </div>
     </div>    
     <footer>
@@ -63,3 +82,4 @@
     </footer>    
 </body>
 </html>
+

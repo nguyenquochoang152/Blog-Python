@@ -1,31 +1,32 @@
-{% extends "pages/base.html" %}
-
-{% block  title %}Blog{% endblock  %}
-
-{% block content %}
+{% extends "pages/base.html" %} {% block title %}Blog{% endblock %} {% block content %}
 <div class="row">
-  <div class="col-md-8">
-    <h1 class="my-4"></h1>
-    {% if not Posts %}
-      Chưa có bài viết nào
-    {% else %}
-     <center><h3>Danh Sách Bài Viết</h3></center>
-    {% for post in Posts  %}
-      <div class="card md-4">
-        <div class="card-body">
-          <h4><a href="{% url 'post' post.id %}">{{post.title}}</a></h4>
-          <img src = "{{post.image.url}}" with="400px" height="200px"/>
-          <br>
-          <small>{{post.date|date:'d/m/Y'}}</small>
-          <p class="card-text">{{post.body}}</p>
-         
-       </div>
-     </div>
-    {% endfor %}
-    <br>
-    <!-- Hiện thị phân trang -->
-      {% include "includes/pagination.html" with page=page_obj %}
-   {% endif %}
-  </div>
+    <div class="col-md-12">
+        <h1 class="my-4"></h1>
+        {% if not Posts %} Chưa có bài viết nào {% else %}
+        <center>
+            <h3>Danh Sách Bài Viết</h3>
+        </center>
+        {% for post in Posts %}
+        <div class="card w-100">
+            <div class="card-body row">
+                <div class="col-3">
+                <div  style=" height:200px;">
+                 <img src="{{post.image.url}}" class="w-100  h-100"  />
+                </div>                   
+                </div>
+                <div class="col-9">
+                    <h4><a href="{% url 'post' post.id %}">{{post.title}}</a></h4>                   
+                    <small>{{post.date|date:'d/m/Y'}}</small></br></br>
+                    <p class="card-text">{{post.body}}</p>
+                </div>
+
+
+            </div>
+        </div>
+        {% endfor %}
+        <br>
+        <!-- Hiện thị phân trang -->
+        {% include "includes/pagination.html" with page=page_obj %} {% endif %}
+    </div>
 </div>
 {% endblock content %}
